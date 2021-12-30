@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ExamDbModelStoreContainer" CdmEntityContainer="ExamDbEntities2">
+    <EntitySetMapping Name="LibraryRegions">
+      <EntityTypeMapping TypeName="ExamDbModel.LibraryRegion">
+        <MappingFragment StoreEntitySet="LibraryRegions">
+          <ScalarProperty Name="region_code" ColumnName="region_code" />
+          <ScalarProperty Name="region_name" ColumnName="region_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LibSexes">
+      <EntityTypeMapping TypeName="ExamDbModel.LibSex">
+        <MappingFragment StoreEntitySet="LibSex">
+          <ScalarProperty Name="sex_id" ColumnName="sex_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VolunteerLists">
+      <EntityTypeMapping TypeName="ExamDbModel.VolunteerList">
+        <MappingFragment StoreEntitySet="VolunteerList">
+          <ScalarProperty Name="VolunteerId" ColumnName="VolunteerId" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Brithdate" ColumnName="Brithdate" />
+          <ScalarProperty Name="sex_id" ColumnName="sex_id" />
+          <ScalarProperty Name="region_code" ColumnName="region_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

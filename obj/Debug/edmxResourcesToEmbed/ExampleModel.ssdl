@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ExamDbModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LibraryRegions">
+    <Key>
+      <PropertyRef Name="region_code" />
+    </Key>
+    <Property Name="region_code" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="region_name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LibSex">
+    <Key>
+      <PropertyRef Name="sex_id" />
+    </Key>
+    <Property Name="sex_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="VolunteerList">
+    <Key>
+      <PropertyRef Name="VolunteerId" />
+    </Key>
+    <Property Name="VolunteerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fristname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Brithdate" Type="datetime" />
+    <Property Name="sex_id" Type="int" />
+    <Property Name="region_code" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK__Volunteer__regio__6383C8BA">
+    <End Role="LibraryRegions" Type="Self.LibraryRegions" Multiplicity="0..1" />
+    <End Role="VolunteerList" Type="Self.VolunteerList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LibraryRegions">
+        <PropertyRef Name="region_code" />
+      </Principal>
+      <Dependent Role="VolunteerList">
+        <PropertyRef Name="region_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Volunteer__sex_i__628FA481">
+    <End Role="LibSex" Type="Self.LibSex" Multiplicity="0..1" />
+    <End Role="VolunteerList" Type="Self.VolunteerList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LibSex">
+        <PropertyRef Name="sex_id" />
+      </Principal>
+      <Dependent Role="VolunteerList">
+        <PropertyRef Name="sex_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ExamDbModel1StoreContainer">
+    <EntitySet Name="LibraryRegions" EntityType="Self.LibraryRegions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LibSex" EntityType="Self.LibSex" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VolunteerList" EntityType="Self.VolunteerList" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Volunteer__regio__6383C8BA" Association="Self.FK__Volunteer__regio__6383C8BA">
+      <End Role="LibraryRegions" EntitySet="LibraryRegions" />
+      <End Role="VolunteerList" EntitySet="VolunteerList" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Volunteer__sex_i__628FA481" Association="Self.FK__Volunteer__sex_i__628FA481">
+      <End Role="LibSex" EntitySet="LibSex" />
+      <End Role="VolunteerList" EntitySet="VolunteerList" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ExamDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="LibraryRegion">
+    <Key>
+      <PropertyRef Name="region_code" />
+    </Key>
+    <Property Name="region_code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="region_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LibSex">
+    <Key>
+      <PropertyRef Name="sex_id" />
+    </Key>
+    <Property Name="sex_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VolunteerList">
+    <Key>
+      <PropertyRef Name="VolunteerId" />
+    </Key>
+    <Property Name="VolunteerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fristname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Brithdate" Type="DateTime" Precision="3" />
+    <Property Name="sex_id" Type="Int32" />
+    <Property Name="region_code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="ExamDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LibraryRegions" EntityType="Self.LibraryRegion" />
+    <EntitySet Name="LibSexes" EntityType="Self.LibSex" />
+    <EntitySet Name="VolunteerLists" EntityType="Self.VolunteerList" />
+  </EntityContainer>
+</Schema>
